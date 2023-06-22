@@ -118,7 +118,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理する';
+remove.textContent = '整理する!!';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
