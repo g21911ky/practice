@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-const addItem1 = (item) => {
+const addItem = (item) => {
   const tr = document.createElement('tr'); //tr要素を作成(行)
     //繰り返しはfor-in文
   for (const prop in item) {
@@ -40,29 +40,6 @@ const addItem1 = (item) => {
 
   table.append(tr); //trエレメントをtable要素に追加
 };
-
-/*
-const addItem2 = (item) => {
-    const tr2 = document.createElement('tr2'); //tr要素を作成(行)
-      //繰り返しはfor-in文
-    for (const prop in item) {
-      const td2 = document.createElement('td2'); //td要素を生成(要素)
-      if (prop == 'done') { //完了欄の場合
-          //完了ちぇっぅボックスを追加
-        const checkbox = document.createElement('input'); //要素生成
-        checkbox.type = 'checkbox'; //tyoe属をcheckboxに
-        checkbox.checked = item[prop]; //check属性を設定
-        td2.appendChild(checkbox); //td要素の子要素に
-        checkbox.addEventListener('change', checkBoxListener);
-      } else {
-        td2.textContent = item[prop]; //ブラケット記法(その他の欄)
-      }
-      tr2.appendChild(td2); //生成したtd要素をtr要素に追加
-    }
-  
-    table.append(tr2); //trエレメントをtable要素に追加
-  };
-*/
 
 const checkBoxListener = (ev) => {
   const trList = Array.from(document.getElementsByTagName('tr')); //テーブルの全tr要素のリストを取得
@@ -92,7 +69,7 @@ submit.addEventListener('click', () => {
   todo.value = '';
   deadline.value = '';
 
-  addItem1(item);
+  addItem(item);
 
   list.push(item);
   storage.todoList = JSON.stringify(list);
@@ -126,16 +103,7 @@ remove.addEventListener('click', () => {
   clearTable(); //toを一旦削除
   list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
   for (const item of list) { //toデータをテーブルに追加
-    addItem1(item);
+    addItem(item);
   }
   storage.todoList = JSON.stringify(list); //ストレージデータを更新
 });
-
-/*
-//完了ボタンを押したら、要素をdoneテーブルに追加する
-for(const item of list) {
-    if(item.dome==true) {
-        addItem(item)
-    }
-}
-*/
