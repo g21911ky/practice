@@ -2,7 +2,7 @@
 
 const storage = localStorage;
 
-const table = document.querySelector('table'); //表
+const table = document.querySelector('.doing'); //表
 const todo = document.getElementById('todo'); //todo
 const deadline = document.querySelector('input[type="date"]'); //〆切
 const submit = document.getElementById('submit'); //登録ボタン
