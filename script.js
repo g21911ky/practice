@@ -10,35 +10,34 @@ const submit = document.getElementById('submit'); //登録ボタン
 let list = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  const json = storage.todoList;
-  if (json == undefined) {
-    return;
-  }
-  list = JSON.parse(json);
-  for (const item of list) {
-    addItem1(item);
-  }
+    const json = storage.todoList;
+    if (json == undefined) {
+        return;
+    }
+    list = JSON.parse(json);
+    for (const item of list) {
+        addItem1(item);
+    }
 });
 
 const addItem = (item) => {
   const tr = document.createElement('tr'); //tr要素を作成(行)
     //繰り返しはfor-in文
-  for (const prop in item) {
-    const td = document.createElement('td'); //td要素を生成(要素)
-    if (prop == 'done') { //完了欄の場合
-        //完了ちぇっぅボックスを追加
-      const checkbox = document.createElement('input'); //要素生成
-      checkbox.type = 'checkbox'; //tyoe属をcheckboxに
-      checkbox.checked = item[prop]; //check属性を設定
-      td.appendChild(checkbox); //td要素の子要素に
-      checkbox.addEventListener('change', checkBoxListener);
-    } else {
-      td.textContent = item[prop]; //ブラケット記法(その他の欄)
+    for (const prop in item) {
+        const td = document.createElement('td'); //td要素を生成(要素)
+        if (prop == 'done') { //完了欄の場合
+            //完了チェックボックスを追加
+            const checkbox = document.createElement('input'); //要素生成
+            checkbox.type = 'checkbox'; //tyoe属をcheckboxに
+            checkbox.checked = item[prop]; //check属性を設定
+            td.appendChild(checkbox); //td要素の子要素に
+            checkbox.addEventListener('change', checkBoxListener);
+        } else {
+            td.textContent = item[prop]; //ブラケット記法(その他の欄)
+        }
+        tr.appendChild(td); //生成したtd要素をtr要素に追加
     }
-    tr.appendChild(td); //生成したtd要素をtr要素に追加
-  }
-
-  table.append(tr); //trエレメントをtable要素に追加
+    table.append(tr); //trエレメントをtable要素に追加
 };
 
 const checkBoxListener = (ev) => {
@@ -74,6 +73,7 @@ submit.addEventListener('click', () => {
   list.push(item);
   storage.todoList = JSON.stringify(list);
 });
+
 
 const filterButton = document.createElement('button'); //ボタン要素を生成(この文を消すと全ボタン消える)
 
