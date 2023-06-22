@@ -10,14 +10,14 @@ const submit = document.getElementById('submit'); //登録ボタン
 let list = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const json = storage.todoList;
-    if (json == undefined) {
-        return;
-    }
-    list = JSON.parse(json);
-    for (const item of list) {
-        addItem1(item);
-    }
+  const json = storage.todoList;
+  if (json == undefined) {
+      return;
+  }
+  list = JSON.parse(json);
+  for (const item of list) {
+      addItem1(item);
+  }
 });
 
 const addItem = (item) => {
