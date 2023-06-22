@@ -16,37 +16,58 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   list = JSON.parse(json);
   for (const item of list) {
-    addItem(item);
+    addItem1(item);
   }
 });
 
-const addItem = (item) => {
-  const tr = document.createElement('tr'); //tr要素を作成
+const addItem1 = (item) => {
+  const tr1 = document.createElement('tr1'); //tr要素を作成(行)
     //繰り返しはfor-in文
   for (const prop in item) {
-    const td = document.createElement('td'); //td要素を生成
+    const td1 = document.createElement('td1'); //td要素を生成(要素)
     if (prop == 'done') { //完了欄の場合
         //完了ちぇっぅボックスを追加
       const checkbox = document.createElement('input'); //要素生成
       checkbox.type = 'checkbox'; //tyoe属をcheckboxに
       checkbox.checked = item[prop]; //check属性を設定
-      td.appendChild(checkbox); //td要素の子要素に
+      td1.appendChild(checkbox); //td要素の子要素に
       checkbox.addEventListener('change', checkBoxListener);
     } else {
-      td.textContent = item[prop]; //ブラケット記法(その他の欄)
+      td1.textContent = item[prop]; //ブラケット記法(その他の欄)
     }
-    tr.appendChild(td); //生成したtd要素をtr要素に追加
+    tr1.appendChild(td1); //生成したtd要素をtr要素に追加
   }
 
-  table.append(tr); //trエレメントをtable要素に追加
+  table.append(tr1); //trエレメントをtable要素に追加
 };
 
+const addItem2 = (item) => {
+    const tr2 = document.createElement('tr2'); //tr要素を作成(行)
+      //繰り返しはfor-in文
+    for (const prop in item) {
+      const td2 = document.createElement('td2'); //td要素を生成(要素)
+      if (prop == 'done') { //完了欄の場合
+          //完了ちぇっぅボックスを追加
+        const checkbox = document.createElement('input'); //要素生成
+        checkbox.type = 'checkbox'; //tyoe属をcheckboxに
+        checkbox.checked = item[prop]; //check属性を設定
+        td2.appendChild(checkbox); //td要素の子要素に
+        checkbox.addEventListener('change', checkBoxListener);
+      } else {
+        td2.textContent = item[prop]; //ブラケット記法(その他の欄)
+      }
+      tr2.appendChild(td2); //生成したtd要素をtr要素に追加
+    }
+  
+    table.append(tr2); //trエレメントをtable要素に追加
+  };
+
 const checkBoxListener = (ev) => {
-  const trList = Array.from(document.getElementsByTagName('tr'));
-  const currentTr = ev.currentTarget.parentElement.parentElement;
-  const idx = trList.indexOf(currentTr) - 1;
-  list[idx].done = ev.currentTarget.checked;
-  storage.todoList = JSON.stringify(list);
+  const trList = Array.from(document.getElementsByTagName('tr')); //テーブルの全tr要素のリストを取得
+  const currentTr = ev.currentTarget.parentElement.parentElement; //チェックボックスの親(td)の親(tr)を取得
+  const idx = trList.indexOf(currentTr) - 1; //配列.indexOfメソッドで何番目(インデックス)かを取得
+  list[idx].done = ev.currentTarget.checked; //配列listにそのインデックスでアクセスしてdoneを更新
+  storage.todoList = JSON.stringify(list); //ストレージデータを更新
 };
 
 //todo登録ボタン
@@ -64,18 +85,18 @@ submit.addEventListener('click', () => {
     const date = new Date(); //本日の日付情報を取得
     item.deadline = date.toLocaleDateString().replace(/\//g, '-'); //日本の体裁を変更
   }
-  item.done = false;  //完了はひとまずboolean
+  item.done = false;  //完了はひとまずboolean値で設定
 
   todo.value = '';
   deadline.value = '';
 
-  addItem(item);
+  addItem1(item);
 
   list.push(item);
   storage.todoList = JSON.stringify(list);
 });
 
-//const filterButton = document.createElement('button'); //ボタン要素を生成
+const filterButton = document.createElement('button'); //ボタン要素を生成(この文を消すと全ボタン消える)
 
 const main = document.querySelector('main');
 main.appendChild(filterButton);
@@ -94,16 +115,23 @@ const clearTable = () => {
 
 const remove = document.createElement('button');
 remove.textContent = '完了したTODOを削除する';
-remove.id = 'remove';
-const br = document.createElement('br');
+remove.id = 'remove'; //css装飾用
+const br = document.createElement('br'); //改行したい
 main.appendChild(br);
 main.appendChild(remove);
 
 remove.addEventListener('click', () => {
-  clearTable();
-  list = list.filter((item) => item.done == false);
-  for (const item of list) {
-    addItem(item);
+  clearTable(); //toを一旦削除
+  list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
+  for (const item of list) { //toデータをテーブルに追加
+    addItem1(item);
   }
-  storage.todoList = JSON.stringify(list);
+  storage.todoList = JSON.stringify(list); //ストレージデータを更新
 });
+
+//完了ボタンを押したら、要素をdoneテーブルに追加する
+for(const item of list) {
+    if(item.dome==true) {
+        addItem2(item)
+    }
+}
