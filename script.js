@@ -75,7 +75,7 @@ submit.addEventListener('click', () => {
   storage.todoList = JSON.stringify(list);
 });
 
-const filterButton = document.createElement('button'); //ボタン要素を生成
+//const filterButton = document.createElement('button'); //ボタン要素を生成
 
 const main = document.querySelector('main');
 main.appendChild(filterButton);
