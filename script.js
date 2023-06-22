@@ -126,7 +126,7 @@ remove.addEventListener('click', () => {
   clearTable(); //toを一旦削除
   list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
   for (const item of list) { //toデータをテーブルに追加
-    addItem1(item);
+    addItem(item);
   }
   storage.todoList = JSON.stringify(list); //ストレージデータを更新
 });
@@ -134,6 +134,6 @@ remove.addEventListener('click', () => {
 //完了ボタンを押したら、要素をdoneテーブルに追加する
 for(const item of list) {
     if(item.dome==true) {
-        addItem2(item)
+        addItem(item)
     }
 }
