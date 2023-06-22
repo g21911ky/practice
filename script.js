@@ -3,14 +3,14 @@
 const storage = localStorage;
 
 const table1 = document.querySelector('.to'); //表
-const table2 = document.querySelector('.doing'); //表
-const table3 = document.querySelector('.done'); //表
+//const table2 = document.querySelector('.doing'); //表
+//const table3 = document.querySelector('.done'); //表
 const todo = document.getElementById('todo'); //todo
 const deadline = document.querySelector('input[type="date"]'); //〆切
 const submit = document.getElementById('submit'); //登録ボタン
 
 let list = [];
-let list2=[];
+//let list2=[];
 
 document.addEventListener('DOMContentLoaded', () => {
   const json = storage.todoList;
@@ -118,7 +118,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理するよんん';
+remove.textContent = '整理する';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
