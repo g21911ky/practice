@@ -42,7 +42,7 @@ const addItem1 = (item) => {
     }
     table1.append(tr); //trエレメントをtable要素に追加
 };
-
+/*
 const addItem3 = (item) => {
   const tr = document.createElement('tr'); //tr要素を作成(行)
     //繰り返しはfor-in文
@@ -62,6 +62,7 @@ const addItem3 = (item) => {
     }
     table3.append(tr); //trエレメントをtable要素に追加
 };
+*/
 
 
 const checkBoxListener = (ev) => {
@@ -117,7 +118,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理するよん';
+remove.textContent = '整理するよんん';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
