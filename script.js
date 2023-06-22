@@ -21,26 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const addItem1 = (item) => {
-  const tr1 = document.createElement('tr1'); //tr要素を作成(行)
+  const tr = document.createElement('tr'); //tr要素を作成(行)
     //繰り返しはfor-in文
   for (const prop in item) {
-    const td1 = document.createElement('td1'); //td要素を生成(要素)
+    const td = document.createElement('td'); //td要素を生成(要素)
     if (prop == 'done') { //完了欄の場合
         //完了ちぇっぅボックスを追加
       const checkbox = document.createElement('input'); //要素生成
       checkbox.type = 'checkbox'; //tyoe属をcheckboxに
       checkbox.checked = item[prop]; //check属性を設定
-      td1.appendChild(checkbox); //td要素の子要素に
+      td.appendChild(checkbox); //td要素の子要素に
       checkbox.addEventListener('change', checkBoxListener);
     } else {
-      td1.textContent = item[prop]; //ブラケット記法(その他の欄)
+      td.textContent = item[prop]; //ブラケット記法(その他の欄)
     }
-    tr1.appendChild(td1); //生成したtd要素をtr要素に追加
+    tr.appendChild(td); //生成したtd要素をtr要素に追加
   }
 
-  table.append(tr1); //trエレメントをtable要素に追加
+  table.append(tr); //trエレメントをtable要素に追加
 };
 
+/*
 const addItem2 = (item) => {
     const tr2 = document.createElement('tr2'); //tr要素を作成(行)
       //繰り返しはfor-in文
@@ -61,6 +62,7 @@ const addItem2 = (item) => {
   
     table.append(tr2); //trエレメントをtable要素に追加
   };
+*/
 
 const checkBoxListener = (ev) => {
   const trList = Array.from(document.getElementsByTagName('tr')); //テーブルの全tr要素のリストを取得
