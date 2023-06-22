@@ -2,7 +2,7 @@
 
 const storage = localStorage;
 
-const table1 = document.querySelector('.to'); //表
+const table1 = document.querySelector('table'); //表
 //const table2 = document.querySelector('.doing'); //表
 //const table3 = document.querySelector('.done'); //表
 const todo = document.getElementById('todo'); //todo
