@@ -4,13 +4,13 @@ const storage = localStorage;
 
 const table = document.querySelector('.to'); //表
 //const table2 = document.querySelector('.doing'); //表
-//const table3 = document.querySelector('.done'); //表
+const table3 = document.querySelector('.done'); //表
 const todo = document.getElementById('todo'); //todo
 const deadline = document.querySelector('input[type="date"]'); //〆切
 const submit = document.getElementById('submit'); //登録ボタン
 
 let list = [];
-//let list2=[];
+let list2=[];
 
 document.addEventListener('DOMContentLoaded', () => {
   const json = storage.todoList;
@@ -42,7 +42,7 @@ const addItem = (item) => {
     }
     table.append(tr); //trエレメントをtable要素に追加
 };
-/*
+
 const addItem3 = (item) => {
   const tr = document.createElement('tr'); //tr要素を作成(行)
     //繰り返しはfor-in文
@@ -62,7 +62,7 @@ const addItem3 = (item) => {
     }
     table3.append(tr); //trエレメントをtable要素に追加
 };
-*/
+
 
 
 const checkBoxListener = (ev) => {
@@ -118,7 +118,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理するよ';
+remove.textContent = '整理する';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
@@ -127,15 +127,13 @@ main.appendChild(remove);
 remove.addEventListener('click', () => {
   clearTable(); //toを一旦削除
   list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
-  //list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
+  list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
     addItem(item);
   }
-  /*
   for (const item of list2) { //toデータをテーブルに追加
-    table3.addItem3(item);
+    addItem3(item);
   }
-  */
   storage.todoList = JSON.stringify(list); //ストレージデータを更新
 });
 
