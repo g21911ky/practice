@@ -2,7 +2,7 @@
 
 const storage = localStorage;
 
-const table1 = document.querySelector('table'); //表
+const table = document.querySelector('table'); //表
 //const table2 = document.querySelector('.doing'); //表
 //const table3 = document.querySelector('.done'); //表
 const todo = document.getElementById('todo'); //todo
@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   list = JSON.parse(json);
   for (const item of list) {
-      addItem1(item);
+      addItem(item);
   }
 });
 
-const addItem1 = (item) => {
+const addItem = (item) => {
   const tr = document.createElement('tr'); //tr要素を作成(行)
     //繰り返しはfor-in文
     for (const prop in item) {
@@ -40,7 +40,7 @@ const addItem1 = (item) => {
         }
         tr.appendChild(td); //生成したtd要素をtr要素に追加
     }
-    table1.append(tr); //trエレメントをtable要素に追加
+    table.append(tr); //trエレメントをtable要素に追加
 };
 /*
 const addItem3 = (item) => {
@@ -93,7 +93,7 @@ submit.addEventListener('click', () => {
   todo.value = '';
   deadline.value = '';
 
-  addItem1(item);
+  addItem(item);
 
   list.push(item);
   storage.todoList = JSON.stringify(list);
@@ -118,18 +118,18 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理する!!';
+remove.textContent = '整理する';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
 main.appendChild(remove);
 
 remove.addEventListener('click', () => {
-  table1.clearTable(); //toを一旦削除
+  clearTable(); //toを一旦削除
   list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
   //list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
-    table1.addItem1(item);
+    addItem(item);
   }
   /*
   for (const item of list2) { //toデータをテーブルに追加
