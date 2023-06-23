@@ -41,8 +41,8 @@ const addItem = (item) => {
         tr.appendChild(td); //生成したtd要素をtr要素に追加
     }
     table.append(tr); //trエレメントをtable要素に追加
-    table2.append(tr);
-    table3.append(tr);
+    //table2.append(tr);
+    //table3.append(tr);
 };
 /*
 const addItem3 = (item) => {
@@ -133,7 +133,7 @@ remove.addEventListener('click', () => {
   //list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
     addItem(item);
-    addItem3(item);
+    //addItem3(item);
   }
   /*
   for (const item of list2) { //toデータをテーブルに追加
