@@ -117,14 +117,14 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理するよ';
+remove.textContent = '整理する';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
 main.appendChild(remove);
 
 remove.addEventListener('click', () => {
-  clearTable(); //toを一旦削除
+  table.clearTable(); //tableを一旦削除
   list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
   //list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
