@@ -125,7 +125,7 @@ main.appendChild(remove);
 
 remove.addEventListener('click', () => {
   clearTable(); //tableを一旦削除
-  Refresh();
+  //Refresh();
   list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
   //list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
