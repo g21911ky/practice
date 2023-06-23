@@ -2,7 +2,7 @@
 
 const storage = localStorage;
 
-const table = document.querySelector('table'); //表
+const table = document.querySelector('.to'); //表
 //const table2 = document.querySelector('.doing'); //表
 //const table3 = document.querySelector('.done'); //表
 const todo = document.getElementById('todo'); //todo
@@ -118,7 +118,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理する';
+remove.textContent = '整理するよ';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
