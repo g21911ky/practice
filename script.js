@@ -2,15 +2,15 @@
 
 const storage = localStorage;
 
-const table = document.querySelector('.to'); //表
-const table2 = document.querySelector('.doing'); //表
-const table3 = document.querySelector('.done'); //表
-const todo = document.getElementById('todo'); //todo
+const table = document.querySelector('.to'); //表DO
+const table2 = document.querySelector('.doing'); //表DOING
+const table3 = document.querySelector('.done'); //表DONE
+const todo = document.getElementById('todo'); //todo登録
 const deadline = document.querySelector('input[type="date"]'); //〆切
 const submit = document.getElementById('submit'); //登録ボタン
 
 let list = [];
-//let list2=[];
+let list2=[];
 
 document.addEventListener('DOMContentLoaded', () => {
   const json = storage.todoList;
@@ -41,8 +41,6 @@ const addItem = (item) => {
         tr.appendChild(td); //生成したtd要素をtr要素に追加
     }
     table.append(tr); //trエレメントをtable要素に追加
-    //table2.append(tr);
-    //table3.append(tr);
 };
 /*
 const addItem3 = (item) => {
@@ -65,8 +63,6 @@ const addItem3 = (item) => {
     table3.append(tr); //trエレメントをtable要素に追加
 };
 */
-
-
 
 const checkBoxListener = (ev) => {
   const trList = Array.from(document.getElementsByTagName('tr')); //テーブルの全tr要素のリストを取得
@@ -133,7 +129,6 @@ remove.addEventListener('click', () => {
   //list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
     addItem(item);
-    //addItem3(item);
   }
   /*
   for (const item of list2) { //toデータをテーブルに追加
