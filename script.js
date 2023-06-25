@@ -2,9 +2,9 @@
 
 const storage = localStorage; // オブジェクト定数に入れて分かりやすく
 
-const table = document.querySelector('to'); //表DO
-const table2 = document.querySelector('doing'); //表DOING
-const table3 = document.querySelector('done'); //表DONE
+const table = document.querySelector("#to"); //表DO
+const table2 = document.querySelector("#doing"); //表DOING
+const table3 = document.querySelector("#done"); //表DONE
 const todo = document.getElementById('todo'); //todo登録
 const deadline = document.querySelector('input[type="date"]'); //〆切
 const submit = document.getElementById('submit'); //登録ボタン
