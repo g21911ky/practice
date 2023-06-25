@@ -108,7 +108,7 @@ filterButton.addEventListener('click', () => {
 });
 
 const clearTable = () => {
-  const trList = Array.from(document.getElementById("to").getElementsByTagName('tr'));
+  const trList = Array.from(document.getElementsByTagName('tr'));
   trList.shift();
   for (const tr of trList) {
     tr.remove();
@@ -116,7 +116,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理する';
+remove.textContent = '整理';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
