@@ -109,7 +109,7 @@ filterButton.addEventListener('click', () => {
 
 //項目欄が消えないようにする
 const clearTable = () => {
-  const trList = Array.from(document.getElementsByTagName('tr')); //テーブルに含まれるtr要素のNodeListを取得
+  const trList = Array.from(document.querySelector("#to").getElementsByTagName('tr')); //テーブルに含まれるtr要素のNodeListを取得
   trList.shift();
   for (const tr of trList) {
     tr.remove();
@@ -117,7 +117,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理';
+remove.textContent = '整理す';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
