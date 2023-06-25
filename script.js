@@ -2,9 +2,9 @@
 
 const storage = localStorage; // オブジェクト定数に入れて分かりやすく
 
-const table = document.querySelector('.to'); //表DO
-const table2 = document.querySelector('.doing'); //表DOING
-const table3 = document.querySelector('.done'); //表DONE
+const table = document.querySelector('to'); //表DO
+const table2 = document.querySelector('doing'); //表DOING
+const table3 = document.querySelector('done'); //表DONE
 const todo = document.getElementById('todo'); //todo登録
 const deadline = document.querySelector('input[type="date"]'); //〆切
 const submit = document.getElementById('submit'); //登録ボタン
@@ -107,8 +107,9 @@ filterButton.addEventListener('click', () => {
   clearTable();
 });
 
+//項目欄が消えないようにする
 const clearTable = () => {
-  const trList = Array.from(document.getElementsByTagName('tr'));
+  const trList = Array.from(document.getElementsByTagName('tr')); //テーブルに含まれるtr要素のNodeListを取得
   trList.shift();
   for (const tr of trList) {
     tr.remove();
@@ -116,7 +117,7 @@ const clearTable = () => {
 };
 
 const remove = document.createElement('button');
-remove.textContent = '整理';
+remove.textContent = '整理する';
 remove.id = 'remove'; //css装飾用
 const br = document.createElement('br'); //改行したい
 main.appendChild(br);
