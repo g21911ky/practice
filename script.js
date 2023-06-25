@@ -125,14 +125,16 @@ main.appendChild(remove);
 
 remove.addEventListener('click', () => {
   clearTable(); //tableを一旦削除
-  list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
-  list2 = list2.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
+  //list = list.filter((item) => item.done == false); //未完了のtoを抽出して定数listを置き換え
+  list = list.filter((item) => item.done == true); //完了のtoを抽出して定数list2を置き換え
   for (const item of list) { //toデータをテーブルに追加
     addItem(item);
   }
+  /*
   for (const item of list2) { //toデータをテーブルに追加
     addItem3(item);
   }
+  */
   storage.todoList = JSON.stringify(list); //ストレージデータを更新
 });
 
